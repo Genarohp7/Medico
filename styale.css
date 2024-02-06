@@ -785,7 +785,7 @@ fieldset {
 
 @media screen and (max-width: 600px) {
   body {
-    width: 500px;
+    width: 400px;
     height: 100%;
   }
 
@@ -793,7 +793,7 @@ fieldset {
   .menu-principal {
     top: 0;
     margin: 0;
-    width: 100%;
+    width: 90%;
     height: 85px;
   }
 
@@ -852,7 +852,7 @@ fieldset {
   /* Primera seccion */
 
   .section1 {
-    width: 450px;
+    width: 100%;
     height: 800px;
     display: flex;
   }
@@ -892,8 +892,8 @@ fieldset {
     top: 330px;
     right: 50px;
     text-align: center;
-    width: 50%;
-    height: 10%;
+    width: 55%;
+    height: 13%;
     border-radius: 30px;
     box-shadow: 10px 5px 5px grey;
   }
@@ -905,7 +905,7 @@ fieldset {
   /* segunda seccion */
 
   .section2 {
-    width: 450px;
+    width: 100%;
     height: 900px;
     background: url(./Susana\ ImG/ojo.jpg) #50b3de;
     background-repeat: no-repeat;
@@ -926,7 +926,7 @@ fieldset {
     justify-content: center;
     align-items: center;
     gap: 20px;
-    width: 400px;
+    width: 300px;
     height: 300px;
     color: #fff;
     font-size: 12px;
@@ -948,7 +948,7 @@ fieldset {
 
   /* seccion 3 */
   .section3 {
-    width: 464px;
+    width: 100%;
     height: 900px;
     display: flex;
     justify-content: center;
