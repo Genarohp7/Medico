@@ -785,7 +785,7 @@ fieldset {
 
 @media screen and (max-width: 600px) {
   body {
-    width: 450px;
+    width: 500px;
     height: 100%;
   }
 
@@ -817,7 +817,7 @@ fieldset {
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    width: 500px;
+    width: 450px;
     height: 900px;
     position: fixed;
     right: 0;
@@ -852,7 +852,7 @@ fieldset {
   /* Primera seccion */
 
   .section1 {
-    width: 500px;
+    width: 450px;
     height: 800px;
     display: flex;
   }
@@ -905,7 +905,7 @@ fieldset {
   /* segunda seccion */
 
   .section2 {
-    width: 432px;
+    width: 450px;
     height: 900px;
     background: url(./Susana\ ImG/ojo.jpg) #50b3de;
     background-repeat: no-repeat;
