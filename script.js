@@ -275,7 +275,7 @@ function gotoDate() {
       return;
     }
   }
-  alert("Invalid Date");
+  alert("Fecha incorrecta");
 }
 
 //function get active day day name and date and update eventday eventdate
@@ -399,7 +399,7 @@ addEventSubmit.addEventListener("click", () => {
     timeToArr[0] > 23 ||
     timeToArr[1] > 59
   ) {
-    alert("Invalid Time Format");
+    alert("formato de horario incorrecto");
     return;
   }
 
