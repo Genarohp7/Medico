@@ -89,12 +89,18 @@ body {
 .section1 {
   width: 100%;
   height: 600px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(1, 1fr);
-  grid-template-areas: "imgsec textsec";
-  align-items: start;
-  padding-top: 10px;
+  display: flex;
+  margin-top: 10px;
+}
+
+.section1 .imgsec {
+  width: 40%;
+  height: 100%;
+}
+
+.section1 .fondo {
+  width: 71%;
+  height: 100%;
 }
 
 img {
@@ -112,7 +118,7 @@ h1 {
 }
 
 .fondo {
-  width: 850px;
+  width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -142,7 +148,9 @@ h1 {
 .section2 {
   width: 100%;
   height: 900px;
+  margin: 15px auto;
   background: url(./Susana\ ImG/ojo.jpg) #50b3de;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-blend-mode: multiply;
@@ -156,13 +164,14 @@ h1 {
 .box2 {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 20px;
   width: 400px;
-  height: 300px;
+  height: 100px;
   color: #fff;
   font-size: 15px;
+  text-align: center;
 }
 
 /* seccion 3 */
@@ -175,27 +184,23 @@ h1 {
 }
 
 .case {
-  padding: 0 100px;
-  width: 400px;
-  /* border: 2px solid black; */
+  width: 50%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-flow: wrap;
   flex-direction: column;
 }
 
 .case1 {
-  width: 200px;
-  height: 100px;
-  /* border: 2px solid black; */
+  width: 50%;
+  height: 25%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   flex-direction: row;
   font-size: 20px;
-  gap: 5px;
-  /* color: #059cdc; */
+  gap: 100px;
 }
 
 .c1 {
@@ -232,7 +237,7 @@ h1 {
 
 footer {
   width: 100%;
-  height: 500px;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(2, ifr);
   grid-template-areas: "footer citas";
@@ -243,6 +248,14 @@ footer {
   margin-bottom: 10px;
 }
 
+.footer {
+  width: 100%;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 .footer h2 {
   display: flex;
   align-items: center;
@@ -255,7 +268,7 @@ footer {
 .in {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: start;
   color: black;
   gap: 1rem;
@@ -280,6 +293,8 @@ footer {
 }
 
 .boton {
+  position: relative;
+  right: 80px;
   border: none;
   color: #fff;
   background-image: linear-gradient(30deg, #0400ff, #0400ff);
@@ -785,7 +800,7 @@ fieldset {
 
 @media screen and (max-width: 600px) {
   body {
-    width: 400px;
+    width: 100%;
     height: 100%;
   }
 
@@ -799,7 +814,10 @@ fieldset {
 
   .menu-principal i {
     display: block;
+    position: relative;
+    left: 50px;
   }
+
   .logo {
     width: 90%;
     height: 100%;
@@ -853,11 +871,10 @@ fieldset {
 
   .section1 {
     width: 100%;
-    height: 800px;
-    display: flex;
+    height: 900px;
   }
 
-  .section1 img {
+  .imgsec {
     display: none;
   }
 
@@ -876,12 +893,11 @@ fieldset {
     font-size: 15px;
   }
 
-  .fondo {
+  .section1 .fondo {
     width: 100%;
-    height: 100%;
+    height: 900px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: end;
     background: url(./Susana\ ImG/Su1.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
@@ -889,8 +905,8 @@ fieldset {
   .textsec {
     background-color: rgb(188, 184, 184);
     position: relative;
-    top: 330px;
-    right: 50px;
+    top: 350px;
+    right: 150px;
     text-align: center;
     width: 55%;
     height: 13%;
@@ -906,14 +922,14 @@ fieldset {
 
   .section2 {
     width: 100%;
-    height: 900px;
+    height: 800px;
     background: url(./Susana\ ImG/ojo.jpg) #50b3de;
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
     background-size: 100% 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-flow: wrap;
     flex-direction: inherit;
@@ -921,13 +937,16 @@ fieldset {
 
   .box2 {
     display: flex;
+    padding-left: 55px;
     text-align: center;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    position: relative;
+    bottom: 50px;
+    gap: 5px;
     width: 300px;
-    height: 300px;
+    height: 50px;
     color: #fff;
     font-size: 12px;
   }
@@ -955,23 +974,25 @@ fieldset {
   }
 
   .case {
-    padding: 0 100px;
-    width: 100px;
+    width: 50%;
+    height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     flex-flow: wrap;
     flex-direction: column;
   }
 
   .case1 {
-    width: 10px;
-    height: 50px;
+    width: 100%;
+    height: 25%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     flex-direction: row;
-    font-size: 20px;
+    padding-left: 7px;
+    font-size: 15px;
+    gap: 5px;
   }
 
   .c1 {
@@ -1015,8 +1036,33 @@ fieldset {
     margin-bottom: 10px;
   }
 
-  footer .citas {
-    display: none;
+  /* Calendario */
+  .citas {
+    width: 90%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    flex-direction: column;
+    border-radius: 0;
+  }
+
+  .container .left,
+  .container .right {
+    width: 100%;
+    height: 100%;
+    padding: 10 0;
+  }
+
+  .events {
+    padding-bottom: 150px;
+  }
+
+  .add-event-wrapper {
+    bottom: 20px;
   }
 }
 
