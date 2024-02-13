@@ -28,6 +28,7 @@ body {
 }
 
 .logo img {
+  display: none;
   width: 200px;
   height: 20%;
   cursor: pointer;
