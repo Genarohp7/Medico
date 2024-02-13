@@ -232,7 +232,6 @@ h1 {
 .footer {
   width: 100%;
   height: 400px;
-  /* background-color: aqua; */
 }
 
 footer {
@@ -244,6 +243,7 @@ footer {
   grid-gap: 30px;
   align-items: start;
   padding-left: 10px;
+  margin-top: 40px;
   margin-bottom: 10px;
 }
 
@@ -316,7 +316,7 @@ footer {
 .citas {
   width: 750px;
   height: 500px;
-  display: flex;
+  display: none !important;
   align-items: center;
   justify-content: center;
 }
@@ -1038,6 +1038,7 @@ fieldset {
 
   /* Calendario */
   .citas {
+    display: none !important;
     width: 90%;
     align-items: flex-start;
     justify-content: flex-start;
