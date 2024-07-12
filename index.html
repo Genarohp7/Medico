@@ -235,20 +235,29 @@
                   />
                 </div>
                 <div class="add-event-input">
-                  <input
-                    type="text"
-                    placeholder="Horario de Cita"
-                    class="event-time-from"
-                  />
+                  <select class="event-time-from">
+                    <option value="08:00 - 09:00 am">08:00 - 09:00 am</option>
+                    <option value="09:00 - 10:00 am">09:00 - 10:00 am</option>
+                    <option value="10:00 - 11:00 am">10:00 - 11:00 am</option>
+                    <option value="11:00 - 12:00 pm">11:00 - 12:00 pm</option>
+                    <option value="12:00 - 01:00 pm">12:00 - 01:00 pm</option>
+                    <option value="01:00 - 02:00 pm">01:00 - 02:00 pm</option>
+                    <option value="02:00 - 03:00 pm" disabled>
+                      02:00 - 03:00 pm
+                    </option>
+                    <option value="03:00 - 04:00 pm">03:00 - 04:00 pm</option>
+                    <option value="04:00 - 05:00 pm">04:00 - 05:00 pm</option>
+                    <option value="05:00 - 06:00 pm">05:00 - 06:00 pm</option>
+                  </select>
                 </div>
                 <div class="add-event-input">
-                  <input
-                    type="text"
-                    placeholder="Horario de Cita Hasta"
-                    class="event-time-to"
-                  />
+                  <textarea
+                    placeholder="Motivo de la cita"
+                    class="event-reason"
+                  ></textarea>
                 </div>
               </div>
+
               <div class="add-event-footer">
                 <button class="add-event-btn">Agregar Cita</button>
               </div>

@@ -1,26 +1,4 @@
-//Menu
-// Menu resposive
-var btnMenuOpen = document.getElementById("btnMenuOpen"),
-  btnMenuClose = document.getElementById("btnMenuClose"),
-  menuResponsive = document.getElementById("menuBar"),
-  enlaces = document.getElementById("enlaces");
-
-// Click abrir
-btnMenuOpen.addEventListener("click", function () {
-  menuResponsive.classList.add("active");
-});
-// click cerrar
-btnMenuClose.addEventListener("click", function () {
-  menuResponsive.classList.remove("active");
-});
-
-// Cerrar menu con elemento de enlaces
-enlaces.addEventListener("click", function () {
-  menuResponsive.style.transitionDelay = "0.5s";
-  menuResponsive.classList.remove("active");
-});
-
-// CALENDARIO
+// Variables
 const calendar = document.querySelector(".calendar"),
   date = document.querySelector(".date"),
   daysContainer = document.querySelector(".days"),
@@ -37,7 +15,7 @@ const calendar = document.querySelector(".calendar"),
   addEventCloseBtn = document.querySelector(".close"),
   addEventTitle = document.querySelector(".event-name"),
   addEventFrom = document.querySelector(".event-time-from"),
-  addEventTo = document.querySelector(".event-time-to"),
+  addEventReason = document.querySelector(".event-reason"),
   addEventSubmit = document.querySelector(".add-event-btn");
 
 let today = new Date();
@@ -153,6 +131,7 @@ function addListner() {
       getActiveDay(e.target.innerHTML);
       updateEvents(Number(e.target.innerHTML));
       activeDay = Number(e.target.innerHTML);
+      updateAvailableTimeSlots();
       days.forEach((day) => {
         day.classList.remove("active");
       });
@@ -251,6 +230,9 @@ function updateEvents(date) {
             <div class="event-time">
               <span class="event-time">${event.time}</span>
             </div>
+            <div class="event-reason">
+              <span class="event-reason">${event.reason}</span>
+            </div>
         </div>`;
     }
   });
@@ -283,27 +265,6 @@ addEventTitle.addEventListener("input", (e) => {
   addEventTitle.value = addEventTitle.value.slice(0, 50);
 });
 
-// Permitir solo tiempo en el formato de entrada
-addEventFrom.addEventListener("input", (e) => {
-  addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, "");
-  if (addEventFrom.value.length === 2) {
-    addEventFrom.value += ":";
-  }
-  if (addEventFrom.value.length > 5) {
-    addEventFrom.value = addEventFrom.value.slice(0, 5);
-  }
-});
-
-addEventTo.addEventListener("input", (e) => {
-  addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, "");
-  if (addEventTo.value.length === 2) {
-    addEventTo.value += ":";
-  }
-  if (addEventTo.value.length > 5) {
-    addEventTo.value = addEventTo.value.slice(0, 5);
-  }
-});
-
 function isTimeSlotAvailable(day, month, year, time) {
   return !eventsArr.some(
     (event) =>
@@ -318,8 +279,8 @@ function isTimeSlotAvailable(day, month, year, time) {
 addEventSubmit.addEventListener("click", () => {
   const eventTitle = addEventTitle.value;
   const eventTimeFrom = addEventFrom.value;
-  const eventTimeTo = addEventTo.value;
-  if (eventTitle === "" || eventTimeFrom === "" || eventTimeTo === "") {
+  const eventReason = addEventReason.value;
+  if (eventTitle === "" || eventTimeFrom === "" || eventReason === "") {
     alert("Por favor, completa todos los campos.");
     return;
   }
@@ -328,25 +289,17 @@ addEventSubmit.addEventListener("click", () => {
   const monthIndex = month + 1;
   const yearNumber = year;
 
-  if (
-    isTimeSlotAvailable(day, monthIndex, yearNumber, eventTimeFrom) &&
-    isTimeSlotAvailable(day, monthIndex, yearNumber, eventTimeTo)
-  ) {
+  if (isTimeSlotAvailable(day, monthIndex, yearNumber, eventTimeFrom)) {
     eventsArr.push({
       day,
       month: monthIndex,
       year: yearNumber,
       time: eventTimeFrom,
       title: eventTitle,
-    });
-    eventsArr.push({
-      day,
-      month: monthIndex,
-      year: yearNumber,
-      time: eventTimeTo,
-      title: eventTitle,
+      reason: eventReason,
     });
     updateEvents(day);
+    updateAvailableTimeSlots();
   } else {
     alert("El horario no está disponible.");
   }
@@ -354,8 +307,30 @@ addEventSubmit.addEventListener("click", () => {
   addEventWrapper.classList.remove("active");
   addEventTitle.value = "";
   addEventFrom.value = "";
-  addEventTo.value = "";
+  addEventReason.value = "";
 });
+
+// Función para actualizar los horarios disponibles para el día activo
+function updateAvailableTimeSlots() {
+  const options = addEventFrom.options;
+  for (let i = 0; i < options.length; i++) {
+    options[i].disabled = false;
+  }
+
+  eventsArr.forEach((event) => {
+    if (
+      event.day === activeDay &&
+      event.month === month + 1 &&
+      event.year === year
+    ) {
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].value === event.time) {
+          options[i].disabled = true;
+        }
+      }
+    }
+  });
+}
 
 // Función para guardar eventos en el almacenamiento local
 function saveEvents() {
