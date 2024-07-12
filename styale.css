@@ -1,20 +1,27 @@
 :root {
+  --color-background: #ffffff;
+  --color-text: #000000;
+  --color-primary: #059cdc;
+  --color-secondary: #0400ff;
   --calendar-clr: #059cdc;
+  --font-family: "Arial", sans-serif;
 }
 
 * {
   margin: 0;
-  pad: 0;
-  font-family: sans-serif;
+  padding: 0;
+  font-family: var(--font-family);
   box-sizing: border-box;
 }
 
 body {
-  width: 1280px;
+  width: 100%;
   height: 100vh;
+  margin: 0 auto;
+  background: var(--color-background);
 }
 
-/* header */
+/* Header */
 .menu-principal {
   width: 100%;
   display: flex;
@@ -23,7 +30,7 @@ body {
   height: 75px;
   padding: 0 30px;
   margin-top: 10px;
-  background: var(--color-backround);
+  background: var(--color-background);
   z-index: 1;
 }
 
@@ -33,6 +40,7 @@ body {
   height: 20%;
   cursor: pointer;
 }
+
 .menu-bar {
   display: flex;
   width: 100%;
@@ -48,44 +56,41 @@ body {
   font-size: 14px;
   text-transform: uppercase;
   text-decoration: none;
-  color: black;
+  color: var(--color-text);
   font-weight: 600;
-  background-size: 0% 2px;
   transition: all 0.5s;
 }
 
 .menu-bar .enlaces ul li a:hover {
-  color: #059cdc;
+  color: var(--color-primary);
 }
 
 .menu-bar .sociales a {
   font-size: 20px;
-  text-transform: uppercase;
   padding: 0 10px;
   font-weight: 700;
   text-decoration: none;
-  color: black;
+  color: var(--color-text);
   transition: all 0.5s;
 }
 
 .menu-bar .sociales a:hover {
-  color: #059cdc;
+  color: var(--color-primary);
 }
 
 .menu-principal i {
   cursor: pointer;
-  color: var(--color-texto);
+  color: var(--color-text);
   font-size: 30px;
-  float: right;
   display: none;
   transition: all 0.5s;
 }
 
 .menu-principal i:hover {
-  color: var(--color-secundario);
+  color: var(--color-secondary);
 }
 
-/* article  */
+/* Article Sections */
 
 .section1 {
   width: 100%;
@@ -102,6 +107,12 @@ body {
 .section1 .fondo {
   width: 71%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(./Assets/maquina.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 img {
@@ -114,22 +125,12 @@ img {
 
 h1 {
   font-size: 30px;
-  font: bold;
-  color: #059cdc;
+  font-weight: bold;
+  color: var(--color-primary);
 }
 
-.fondo {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: url(./Susana\ ImG/maquina.jpg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-}
 .textsec {
-  background-color: rgb(188, 184, 184);
+  background-color: rgba(188, 184, 184, 0.8);
   width: 500px;
   height: 200px;
   display: flex;
@@ -144,22 +145,19 @@ h1 {
   font-size: 50px;
 }
 
-/* seccion 2 */
+/* Sección 2 */
 
 .section2 {
   width: 100%;
   height: 900px;
   margin: 15px auto;
-  background: url(./Susana\ ImG/ojo.jpg) #50b3de;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background: url(./Assets/ojo.jpg) #50b3de;
   background-size: cover;
   background-blend-mode: multiply;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  flex-flow: wrap;
-  flex-direction: inherit;
+  flex-wrap: wrap;
 }
 
 .box2 {
@@ -169,13 +167,13 @@ h1 {
   align-items: center;
   gap: 20px;
   width: 400px;
-  height: 100px;
   color: #fff;
   font-size: 15px;
   text-align: center;
 }
 
-/* seccion 3 */
+/* Sección 3 */
+
 .section3 {
   width: 100%;
   height: 580px;
@@ -189,7 +187,6 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-flow: wrap;
   flex-direction: column;
 }
 
@@ -205,13 +202,15 @@ h1 {
 }
 
 .c1 {
-  color: #059cdc;
+  color: var(--color-primary);
 }
 
 .c2 {
   color: #fff;
-  background: #059cdc;
+  background: var(--color-primary);
 }
+
+/* Sección 4 */
 
 .section4 {
   display: flex;
@@ -230,37 +229,26 @@ h1 {
   height: 90%;
 }
 
-.footer {
-  width: 100%;
-  height: 400px;
-}
+/* Footer */
 
 footer {
   width: 100%;
-  height: 100%;
   display: grid;
-  grid-template-columns: repeat(2, ifr);
-  grid-template-areas: "footer citas";
-  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
   align-items: start;
-  padding-left: 10px;
-  margin-top: 40px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin: 40px 0 10px;
 }
 
 .footer {
-  width: 100%;
-  padding-left: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+
 .footer h2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
   text-transform: uppercase;
   padding-bottom: 40px;
 }
@@ -270,60 +258,45 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: start;
-  color: black;
+  color: var(--color-text);
   gap: 1rem;
 }
 
-#name {
+.in input,
+.in textarea {
   width: 300px;
-  background-color: #fff;
-}
-
-#email {
-  width: 300px;
-  background-color: #fff;
-}
-
-#coments {
-  width: 300px;
-}
-
-.area {
   background-color: #fff;
 }
 
 .boton {
-  position: relative;
-  right: 80px;
   border: none;
   color: #fff;
-  background-image: linear-gradient(30deg, #0400ff, #0400ff);
+  background-image: linear-gradient(
+    30deg,
+    var(--color-secondary),
+    var(--color-secondary)
+  );
   border-radius: 20px;
-  background-size: 100% auto;
-  font-family: inherit;
   font-size: 17px;
-  margin-left: 150px;
   padding: 0.6em 1.5em;
   cursor: pointer;
+  transition: background-position 0.5s;
 }
 
 .boton:hover {
   background-position: right center;
   background-size: 200% auto;
-  -webkit-animation: pulse 2s infinite;
-  animation: pulse512 1.5s infinite;
 }
 
 .citas {
   width: 750px;
   height: 500px;
-  display: none !important;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .container {
-  position: relative;
   width: 1700px;
   height: 100%;
   margin: 0 auto;
@@ -337,8 +310,10 @@ footer {
   width: 60%;
   padding: 10px;
 }
+
+/* Calendario */
+
 .calendar {
-  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -356,7 +331,6 @@ footer {
 
 .calendar .month {
   width: 50%;
-  height: 100%;
   display: flex;
   gap: 10px;
   align-items: center;
@@ -379,26 +353,20 @@ footer {
 
 .calendar .weekdays {
   width: 80%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: start;
-  padding: 0 -5px;
+  gap: 10px;
   font-size: 1rem;
   font-weight: 500;
   text-transform: capitalize;
 }
-.weekdays {
-  gap: 10px;
-}
 
 .calendar .weekdays div {
   width: 25%;
-  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
 }
 
 .calendar .days {
@@ -454,10 +422,6 @@ footer {
   font-size: 1.5rem;
 }
 
-.calendar .days .event {
-  position: relative;
-}
-
 .calendar .days .event::after {
   content: "";
   position: absolute;
@@ -477,10 +441,6 @@ footer {
 .calendar .active.event::after {
   background-color: #fff;
   bottom: 1%;
-}
-
-.calendar .active .event {
-  padding-bottom: 10px;
 }
 
 .calendar .goto-day {
@@ -524,33 +484,26 @@ footer {
   color: #fff;
   background-color: var(--calendar-clr);
 }
+
 .calendar .goto-day .goto button {
   border: none;
   border-left: 1px solid var(--calendar-clr);
   border-radius: 0;
 }
 
-fieldset {
-  display: none;
-}
-
 .container .right {
-  position: relative;
   width: 40%;
-  min-height: 40%;
   padding: 5px 0;
 }
 
 .right .today-date {
   width: 100%;
-  height: 50px;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  padding-left: 70px;
   margin-top: 10px;
   margin-bottom: 20px;
   text-transform: capitalize;
@@ -570,7 +523,6 @@ fieldset {
 
 .events {
   width: 100%;
-  height: 80%;
   max-height: 400px;
   overflow-x: hidden;
   overflow-y: auto;
@@ -581,21 +533,14 @@ fieldset {
   font-weight: 700;
   gap: 15px;
 }
-.event {
-  display: flex;
-  align-items: start;
-  justify-content: center;
-}
+
 .events .event {
   position: relative;
   width: 95%;
-  height: 50%;
   display: flex;
-  justify-content: center;
   flex-direction: column;
   gap: 20px;
   padding: 0 20px;
-  padding-left: 20px;
   color: #fff;
   cursor: pointer;
   background: linear-gradient(90deg, #3f4458, transparent);
@@ -612,7 +557,6 @@ fieldset {
 .events .event .title {
   display: flex;
   align-items: center;
-  pointer-events: none;
 }
 
 .events .event .title .event-title {
@@ -636,7 +580,6 @@ fieldset {
   font-weight: 400;
   color: #878895;
   margin-left: 5px;
-  pointer-events: none;
 }
 
 .events .event::after {
@@ -646,8 +589,6 @@ fieldset {
   right: 0;
   font-size: 3rem;
   display: none;
-  align-items: center;
-  justify-content: center;
   opacity: 0.3;
   color: var(--calendar-clr);
   transform: translateY(-50%);
@@ -670,9 +611,8 @@ fieldset {
 
 .add-event-wrapper {
   position: absolute;
-  bottom: 100px;
-  left: 50%;
-  width: 90%;
+  left: 70%;
+  width: 40%;
   max-height: 0;
   overflow: hidden;
   border-radius: 5px;
@@ -745,7 +685,7 @@ fieldset {
 }
 
 .add-event-body .add-event-input input:focus {
-  border-color: var(--calendar-clr);
+  border-color: var (--calendar-clr);
 }
 
 .add-event-body .add-event-input input:focus::placeholder {
@@ -775,7 +715,6 @@ fieldset {
 
 .add-event {
   position: absolute;
-  bottom: 10px;
   right: 10px;
   width: 40px;
   height: 40px;
@@ -786,7 +725,6 @@ fieldset {
   color: #878895;
   opacity: 0.5;
   border-radius: 50%;
-  caret-color: transparent;
   cursor: pointer;
 }
 
@@ -798,6 +736,12 @@ fieldset {
   pointer-events: none;
 }
 
+.day.occupied {
+  background-color: red;
+  color: white;
+}
+
+/* Media Queries */
 @media screen and (max-width: 600px) {
   body {
     width: 100%;
@@ -869,8 +813,7 @@ fieldset {
     font-size: 20px;
   }
 
-  /* Primera seccion */
-
+  /* Primera sección */
   .section1 {
     width: 100%;
     height: 900px;
@@ -882,9 +825,8 @@ fieldset {
 
   h1 {
     font-size: 13px;
-    font: bold;
     font-weight: 800;
-    color: #059cdc;
+    color: var(--color-primary);
   }
 
   .r {
@@ -900,10 +842,11 @@ fieldset {
     height: 900px;
     display: flex;
     justify-content: end;
-    background: url(./Susana\ ImG/Su1.jpg);
+    background: url(/Assets/Su1.jpg);
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
+
   .textsec {
     background-color: rgb(188, 184, 184);
     position: relative;
@@ -920,16 +863,14 @@ fieldset {
     font-size: 50px;
   }
 
-  /* segunda seccion */
-
+  /* Segunda sección */
   .section2 {
     width: 100%;
     height: 800px;
-    background: url(./Susana\ ImG/ojo.jpg) #50b3de;
+    background: url(./Assets/Su1.jpg) #50b3de;
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: multiply;
-    background-size: 100% 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -967,7 +908,7 @@ fieldset {
     display: none;
   }
 
-  /* seccion 3 */
+  /* Tercera sección */
   .section3 {
     width: 100%;
     height: 900px;
@@ -998,16 +939,15 @@ fieldset {
   }
 
   .c1 {
-    color: #059cdc;
+    color: var(--color-primary);
   }
 
   .c2 {
     color: #fff;
-    background: #059cdc;
+    background: var(--color-primary);
   }
 
-  /* Seccion4 */
-
+  /* Cuarta sección */
   .section4 {
     display: flex;
     align-items: center;
@@ -1025,7 +965,7 @@ fieldset {
     height: 70%;
   }
 
-  /* footer */
+  /* Footer */
   footer {
     width: 100%;
     height: 900px;
@@ -1039,7 +979,6 @@ fieldset {
 
   /* Calendario */
   .citas {
-    display: none !important;
     width: 90%;
     align-items: flex-start;
     justify-content: flex-start;
@@ -1068,6 +1007,7 @@ fieldset {
   }
 }
 
+/* Animaciones */
 @keyframes pulse512 {
   0% {
     box-shadow: 0 0 0 0 #05bada66;
